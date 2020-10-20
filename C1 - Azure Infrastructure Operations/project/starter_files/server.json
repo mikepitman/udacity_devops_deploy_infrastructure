@@ -1,6 +1,6 @@
 {
 	"variables": {
-		"subscription_id": "57031269-32da-4e7c-91b3-7263fefaaf1d"
+		"subscription_id": ""
 	},
 	"builders": [{
 		"type": "azure-arm",
