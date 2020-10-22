@@ -1,0 +1,14 @@
+{
+  "if": {
+    "not": {
+      "field": "tags",
+      "exists": "true"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+
+// todo: use this command to create policy definition. Copy, and delete from here before using from CLI, though.
+az policy definition create --name tagging-policy --mode Indexed --display-name "Deny creation of untagged resources" --description "This policy will block creation of resources without tags." --rules policy_mandate-tags.json

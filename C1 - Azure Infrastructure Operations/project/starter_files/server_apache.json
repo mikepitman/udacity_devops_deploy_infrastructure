@@ -1,0 +1,29 @@
+{
+  "builders": [{
+    "type": "azure-arm",
+
+    "subscription_id": "{{user `subscription_id`}}",
+
+    "os_type": "Linux",
+    "image_publisher": "Canonical",
+    "image_offer": "UbuntuServer",
+    "image_sku": "18.04-LTS",
+
+    "managed_image_resource_group_name": "{{user `image_rg`}}",
+    "managed_image_name": "ubuntuLtsApache",
+
+    "location": "southafricanorth",
+    "vm_size": "Standard_B2s",
+
+    "azure_tags": {
+      "Team": "DevOps"
+    }
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sudo apt-get install apache2 -y && sudo ls -la /var/www/html/ && sudo chmod 777 /var/www/html/index.html && echo 'Running on packer with apache!' > /var/www/html/index.html"
+    ],
+    "inline_shebang": "/bin/sh -x"
+  }]
+}

@@ -1,7 +1,4 @@
 {
-	"variables": {
-		"subscription_id": ""
-	},
 	"builders": [{
 		"type": "azure-arm",
 
@@ -12,11 +9,15 @@
 		"image_offer": "UbuntuServer",
 		"image_sku": "18.04-LTS",
 
-		"managed_image_resource_group_name": "mike_udacity",
-		"managed_image_name": "ubuntuLtsPackerImage",
+		"managed_image_resource_group_name": "{{user `image_rg`}}",
+        "managed_image_name": "ubuntuLtsBusybox",
 
 		"location": "southafricanorth",
-		"vm_size": "Standard_B2s"
+		"vm_size": "Standard_B2s",
+
+		"azure_tags": {
+			"Team": "DevOps"
+		}
 	}],
 	"provisioners": [{
 		"inline": [
@@ -24,6 +25,6 @@
 			"nohup busybox httpd -f -p 80 &"
 		],
 		"inline_shebang": "/bin/sh -x",
-		"type: "shell"
+		"type": "shell"
 	}]
 }
