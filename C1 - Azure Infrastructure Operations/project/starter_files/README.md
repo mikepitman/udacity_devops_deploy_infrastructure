@@ -21,8 +21,7 @@ You can create and use a free Azure account for this project, or a pay-as-you-go
 
 ### Instructions
 #####1. Clone this repository to a folder on your machine.
-You can fork it to your own github account, or...
-The Packer image is configured in ..\C1 - Azure Infrastructure Operations\project\starter_files\server.json
+Clone the project to your desired location using the 'Code' button from the project root on Github.
 
 #####2. Azure Authentication
 If you execute the following commands from Azure Cloud Shell, you will be automatically authenticated. However if you
